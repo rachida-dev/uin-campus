@@ -15,16 +15,16 @@ Systeme de gestion academique de l'UIN (squelette du projet, version 0.1.0).
 
 ## Compilation et execution
 
-'''
+```
 cd uin-campus
 cmake --preset debug
 cmake --build --preset debug
 ./build/debug/uin-campus
-'''
+```
 
 ## qualite du code
 
-'''
+```
 clang-format -i include/uincampus/*.hpp src/*.cpp app/*.cpp
 clang-tidy -p build/debug src/*.cpp app/*.cpp
-'''
+```
