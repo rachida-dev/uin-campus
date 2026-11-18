@@ -38,6 +38,8 @@ target_link_libraries(uincampus_core PRIVATE uincampus_options)
 
 add_executable(uin-campus app/main.cpp)
 target_link_libraries(uin-campus PRIVATE uincampus_core uincampus_options)
+add_executable(carnet tp4/carnet.cpp)
+target_link_libraries(carnet PRIVATE uincampus_core uincampus_options)
 
 
 
