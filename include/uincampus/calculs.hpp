@@ -2,11 +2,11 @@
 
 #include "uincampus/regles.hpp"
 
-#include <vector>
+#include <span>
 
 namespace uin {
 
-/// Indicateurs statistiques d'une série de notes.
+/// Indicateurs statistiques d'une  série de notes.
 struct Statistiques {
     double minimum{};
     double maximum{};
@@ -15,24 +15,24 @@ struct Statistiques {
 };
 
 /// Somme des valeurs.
-[[nodiscard]] double somme(const std::vector<double>& valeurs);
+[[nodiscard]] double somme(std::span<const double> valeurs);
 
 /// Moyenne arithmétique.
 /// @pre notes n'est pas vide
-[[nodiscard]] double moyenne(const std::vector<double>& notes);
+[[nodiscard]] double moyenne(std::span<const double> notes);
 
-/// Moyenne pondérée par les coefficients.
-/// @pre notes non vide, meme taille que coefficients,
+/// moyenne pondérée par les coefficients.
+/// @pre notes non vide, même taille que coefficients,
 ///      somme des coefficients > 0
-[[nodiscard]] double moyenne(const std::vector<double>& notes,
-                            const std::vector<double>& coefficients);
+[[nodiscard]] double moyenne(std::span<const double> notes,
+                             std::span<const double> coefficients);
 
-/// Minimum, maximum, moyenne et écart-type.
+/// Minimum, maximum, moyenne et écart-Type.
 /// @pre notes n'est pas vide
-[[nodiscard]] Statistiques calculerStatistiques(const std::vector<double>& notes);
+[[nodiscard]] Statistiques calculerStatistiques(std::span<const double> notes);
 
 /// Nombre de notes >= seuil.
-[[nodiscard]] int compterValidees(const std::vector<double>& notes,
+[[nodiscard]] int compterValidees(std::span<const double> notes,
                                   double seuil = seuilValidation);
 
 /// Arrondi au nombre de décimales demandé.

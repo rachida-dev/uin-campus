@@ -1,4 +1,6 @@
 #pragma once
+
+#include <array>
 #include <string_view>
 namespace uin {
 
@@ -6,6 +8,13 @@ namespace uin {
 inline constexpr double noteMin = 0.0;
 inline constexpr double noteMax = 20.0;
 inline constexpr double seuilValidation = 10.0;
+
+/// Seuils d'acces aux mentions Passable, Assez bien, Bien et Tres bien.
+inline constexpr std::array seuilsMentions{10.0, 12.0, 14.0, 16.0};
+
+static_assert(seuilsMentions.size() == 4, "Un seuil par mention au-dessus,d'Ajourné");
+static_assert(seuilsMentions[0] == seuilValidation,
+              "La mention Passable commence au seuil de validation");
 
 /// Mentions attribuées selon la moyenne.
 enum class Mention { Ajourne, Passable, AssezBien, Bien, TresBien };
